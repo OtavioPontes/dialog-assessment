@@ -12,7 +12,7 @@ Foi usado o docker, em especial o docker-compose para gerar as imagens e os cont
 ![image](https://github.com/user-attachments/assets/e2b20eee-89b9-48e6-8d2f-6ac73c6ce361)
 
 
-Para rodar basta rodar:
+Para buildar e rodar o projeto:
 ```
 docker-compose up -d --build
 ```
@@ -72,3 +72,25 @@ A documentação da api foi feita usando o Swagger e está disponível na seguin
 ```
 http://localhost:5000/swagger/index.html
 ```
+
+## FRONTEND (NEXTJS)
+O frontend do projeto foi feito com o padrão do Nextjs, com tailwind e typescript. Foi optado por utilizar o padrão /app.
+
+![image](https://github.com/user-attachments/assets/30dff391-2c5f-4baf-8cc8-f72dac79bebe)
+
+As páginas do site estão separada cada uma em uma pasta dentro de app, correspondendo a uma rota dentro da aplicação. Os demais pastas como api, components e models, são auxiliares.
+A url do frontend-nextjs é:
+```
+http://localhost:3000
+```
+
+![image](https://github.com/user-attachments/assets/b8f19e33-8db1-43a0-9289-eb9688e982bc)
+![image](https://github.com/user-attachments/assets/75a37b4f-0fc9-46ec-a9c4-d144d6f59518)
+![image](https://github.com/user-attachments/assets/6e5cf34c-16db-4106-989a-9b5fd88aa567)
+![image](https://github.com/user-attachments/assets/9eaf1e80-a4ad-4194-a3d2-74f06bb71f55)
+
+
+
+
+
+
