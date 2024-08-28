@@ -6,7 +6,7 @@ import Link from "next/link";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { PostForm } from "../../components/PostForm";
 import { useEffect, useState } from "react";
-import { GetPost, GetPosts } from "../../api/route";
+import { GetPost, GetPosts } from "../../api/api";
 import { InfinitySpin } from "react-loader-spinner";
 
 export default function EditPostPage({ params }: { params: { id: string } }) {

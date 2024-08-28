@@ -1,11 +1,14 @@
-FROM golang:alpine
+FROM golang:latest AS builder
 
-WORKDIR /api
+WORKDIR /usr/src/app
 
-COPY . .  
+RUN go mod init api-go && go mod tidy
 
-RUN go mod tidy
+COPY . .
+RUN go build -o api main.go
 
-EXPOSE 5000
+# FROM scratch
+# WORKDIR /usr/src/app
+# COPY --from=builder /usr/src/app .
 
-CMD ["go","run","main.go"]
+CMD [ "./api" ]

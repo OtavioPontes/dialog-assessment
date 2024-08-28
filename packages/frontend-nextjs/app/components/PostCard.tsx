@@ -1,7 +1,7 @@
 import { FaCalendar, FaPen } from "react-icons/fa";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa6";
-import { LikePost } from "../api/route";
+import { LikePost } from "../api/api";
 import Link from "next/link";
 
 export default function PostCard({ post, user }: { post: Post; user: User }) {

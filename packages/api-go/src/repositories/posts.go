@@ -43,6 +43,8 @@ func (repository Posts) Create(userId uuid.UUID, post models.Post) error {
 		return err
 	}
 
+	repository.redis.Del(context.Background(), "posts")
+
 	return nil
 }
 
@@ -111,9 +113,10 @@ func (repository Posts) GetPosts() ([]models.Post, error) {
 		}
 		posts = append(posts, post)
 	}
-
-	postsJson, _ := json.Marshal(posts)
-	repository.redis.Set(context.Background(), "posts", postsJson, 10*time.Minute)
+	if len(posts) > 0 {
+		postsJson, _ := json.Marshal(posts)
+		repository.redis.Set(context.Background(), "posts", postsJson, 10*time.Minute)
+	}
 
 	return posts, nil
 }
@@ -131,6 +134,8 @@ func (repository Posts) Update(id uuid.UUID, post models.Post) error {
 		return err
 	}
 
+	repository.redis.Del(context.Background(), "posts")
+
 	return nil
 }
 
@@ -146,6 +151,7 @@ func (repository Posts) Delete(id uuid.UUID) error {
 	if err != nil {
 		return err
 	}
+	repository.redis.Del(context.Background(), "posts")
 
 	return nil
 }
@@ -163,6 +169,7 @@ func (repository Posts) Like(id uuid.UUID) error {
 		return err
 	}
 
+	repository.redis.Del(context.Background(), "posts")
 	return nil
 }
 
@@ -185,6 +192,7 @@ func (repository Posts) Dislike(id uuid.UUID) error {
 	if err != nil {
 		return err
 	}
+	repository.redis.Del(context.Background(), "posts")
 
 	return nil
 }

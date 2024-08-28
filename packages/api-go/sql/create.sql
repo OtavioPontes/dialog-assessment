@@ -1,12 +1,7 @@
-CREATE DATABASE IF NOT EXISTS dialog;
-USE dialog;
-
-DROP TABLE IF EXISTS posts;
-DROP TABLE IF EXISTS users;
-
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 CREATE TABLE users(
-    id UUID PRIMARY KEY,
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(50) NOT NULL,
     nick VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(50) NOT NULL UNIQUE,
@@ -15,7 +10,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE posts(
-    id UUID PRIMARY KEY,
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     title VARCHAR(50) NOT NULL,
     content VARCHAR(300) NOT NULL,
     author_id UUID NOT NULL,

@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { Bounce, toast } from "react-toastify";
-import { CreatePost, UpdatePost } from "../api/route";
+import { CreatePost, UpdatePost } from "../api/api";
 import { useRouter } from "next/navigation";
 
 export function PostForm({ post }: { post: Post | null }) {

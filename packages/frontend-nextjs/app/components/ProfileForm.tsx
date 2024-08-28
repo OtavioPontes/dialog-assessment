@@ -2,13 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { Bounce, toast } from "react-toastify";
-import {
-  DeleteUser,
-  GetUser,
-  Login,
-  UpdatePost,
-  UpdateUser,
-} from "../api/route";
+import { DeleteUser, GetUser, Login, UpdatePost, UpdateUser } from "../api/api";
 import { FaDeleteLeft } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import { Router } from "next/router";

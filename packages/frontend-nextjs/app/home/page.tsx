@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { GetPosts, GetUser, Logout } from "../api/route";
+import { GetPosts, GetUser, Logout } from "../api/api";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { FaRegNewspaper, FaCirclePlus } from "react-icons/fa6";
 import Link from "next/link";
@@ -70,8 +70,13 @@ export default function HomePage() {
           <div className="flex justify-center mt-20">
             <InfinitySpin width="300" color="#000000" />
           </div>
+        ) : posts?.length > 0 ? (
+          posts?.map((e) => <PostCard key={e.id} post={e} user={user!} />)
         ) : (
-          posts.map((e) => <PostCard key={e.id} post={e} user={user!} />)
+          <div className="flex flex-col justify-center mt-24 space-y-5 text-center">
+            <h3 className="text-2xl">Ainda não temos posts 😥</h3>
+            <h3 className="text-lg text-gray-400">Publique um agora mesmo</h3>
+          </div>
         )}
       </div>
     </div>

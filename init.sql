@@ -1,0 +1,23 @@
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+CREATE TABLE users(
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    name VARCHAR(50) NOT NULL,
+    nick VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE posts(
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    title VARCHAR(50) NOT NULL,
+    content VARCHAR(300) NOT NULL,
+    author_id UUID NOT NULL,
+    likes INT DEFAULT 0,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (author_id)
+    REFERENCES users(id)
+    ON DELETE CASCADE
+);

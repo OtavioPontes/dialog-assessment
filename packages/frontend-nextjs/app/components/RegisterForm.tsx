@@ -2,7 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { Bounce, toast } from "react-toastify";
-import { Login, Register } from "../api/route";
+import { Login, Register } from "../api/api";
 import { useRouter } from "next/navigation";
 
 export function RegisterForm() {

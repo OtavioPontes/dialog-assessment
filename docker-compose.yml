@@ -1,0 +1,54 @@
+version: "3"
+
+services:
+  site:
+    build: ./packages/frontend-nextjs
+    container_name: site
+    depends_on:
+      - db
+      - redis
+      - api-dialog
+    ports:
+      - "3000:3000"
+
+  api-dialog:
+    build: ./packages/api-go
+    depends_on:
+      - db
+      - redis
+    container_name: api-dialog
+    ports:
+      - 5000:5000
+    env_file:
+      - ./packages/api-go/.env
+    volumes:
+      - ./packages/api-go:/api
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./packages/dаta:/root/redis
+      - ./packages/redis.conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_PASSWORD=teste1234
+      - REDIS_PORT=6379
+      - REDIS_DATABASES=16
+
+  db:
+    image: postgres
+    container_name: db_postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    tty: true
+    volumes:
+      - ./packages/postgresql:/var/lib/postgresql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_USER=otavio
+      - POSTGRES_DB=dialog
+      - POSTGRES_PASSWORD=12345678
