@@ -91,6 +91,26 @@ http://localhost:3000
 
 
 
+## Checklist
+### Nível Júnior
+- [x] API RESTful: Implementar um monolito em Node.js ou uma API RESTful em Node.js ou Go para gerenciamento de perfis de usuário. Operações CRUD (Create, Read, Update, Delete) para os perfis.
+- [x] Endpoint para criação de postagens na timeline.
+- [x] Endpoint para reagir a postagens com curtidas.
+- [x] Frontend Básico: Utilizar React ou Next.js para criar uma tela de perfil e uma timeline de postagens.
+- [x] Exibir postagens na timeline com a capacidade de adicionar novas postagens e curtir.
+- [x] Autenticação: Implementar autenticação utilizando JWT.
+- [x] Testes Unitários: Criar testes unitários para os principais endpoints da API.
+- [x] Documentação: Documentar a API utilizando Swagger ou uma ferramenta similar.
+### Nível Pleno
+- [x] Frontend Avançado: Migrar o frontend para Next.js (caso tenha escolhido React no nível Júnior).
+- [x] Implementar uma interface de usuário mais rica e responsiva.
+- [x] Banco de Dados: Integração com um banco de dados relacional (ex: PostgreSQL).
+- [x] Persistir dados de usuários, postagens e reações (curtidas).
+- [x] Cache: Implementar cache utilizando Redis para melhorar a performance das operações de leitura.
+- [ ] Testes de Integração: Criar testes de integração para validar o fluxo completo da aplicação.
 
-
-
+## Alguns pontos de melhoria na aplicação
+Além é claro do que foi proposto no nível de sênior, como os microsserviços, go-routines e channels, que auxiliam na escalabilidade e performance do sistema, há alguns pontos de melhoria tanto no front quanto no back:
+- Paginação da API.
+- Scroll Infinito paginado na página de posts.
+- Troca do sistema de autenticação por um mais robusto, como OAUTH.
